@@ -34,7 +34,7 @@ or
 val tumblr = TumblrApi(apiKey, apiSecret, accessTokenKey, accessTokenSecret) // with OAuth capabilities
 ```
 
-If you'll try to use an OAuth required method, you'll get a `TumblrApiOAuthException`.
+If you'll try to use an OAuth required method without the credentials supplied (first example), you'll get a `TumblrApiOAuthException`.
 
 ### Querying
 
@@ -44,11 +44,11 @@ All methods mirror the available [API functionality](http://www.tumblr.com/docs/
 import tumblr4s.model._
 
 try {
-  val baseHostname = "staff.tumblr.com" // the standard or custom blog hostname, see:
+  val baseHostname = "staff.tumblr.com" // a standard or custom blog hostname, see:
                                         // http://www.tumblr.com/docs/en/api/v2#hostname
   val blog: Blog = tumblr.getBlogInfo(baseHostname)
   val followers: BlogFollowers = tumblr.getBlogFollowers(baseHostname, limit = 20, offset = 60)
-  val post: Option[Post] = tumblr.getBlogPost(37192020774L, baseHostname)
+  val post: Post = tumblr.getBlogPost(37192020774L, baseHostname)
   val posts: Seq[Post] = tumblr.getDraftPosts(baseHostname)
 
   val user: User = tumblr.getUserInfo() // user == the authenticated OAuth user (not some public blog)
@@ -56,8 +56,9 @@ try {
   // ...
 } catch {
   case TumblrApiOAuthException() => // tried to invoke an OAuth required method without needed credentials
-  case TumblrApiException(400, message, contents, cause) => // 400 Bad Request
-  case TumblrApiException(401, message, contents, cause) => // 400 Unauthorized
+  case TumblrApiException(400, message, contents, cause) => // Bad Request
+  case TumblrApiException(401, message, contents, cause) => // Unauthorized
+  case TumblrApiException(404, message, contents, cause) => // Not Found
   // ...
   case _ => // unknown error
 }

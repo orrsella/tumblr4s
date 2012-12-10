@@ -18,3 +18,4 @@ project/target
 # IntelliJ specific
 .idea
 .idea_modules
+src/main/scala/tumblr4s/Main.scala
