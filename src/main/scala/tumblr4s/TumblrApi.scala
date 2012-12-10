@@ -57,7 +57,8 @@ class TumblrApi(
    * @param baseHostname The standard or custom blog hostname
    * @param size         The size of the avatar (square, one value for both length and width)
    */
-  def getBlogAvatar(baseHostname: String, size: AvatarSize = AvatarSize64): Avatar = new Avatar(BaseUrl + "/blog/" + baseHostname + "/avatar/" + size.size)
+  def getBlogAvatar(baseHostname: String, size: AvatarSize = AvatarSize64): Avatar =
+    new Avatar(BaseUrl + "/blog/" + baseHostname + "/avatar/" + size.size)
 
   /**
    * Retrieve blog info
@@ -82,7 +83,7 @@ class TumblrApi(
     val url = BaseUrl + "/blog/" + baseHostname + "/followers"
     val params: Map[String, String] = Map("limit" -> limit, "offset" -> offset)
     getJson(OAuth, GET, url, params) \ "response" transformField {
-      case JField("totalUsers", JString(value)) => JField("totalUsers", JInt(value.toInt)) // cast string to int - totalUsers is a string for some reason
+      case JField("totalUsers", JString(value)) => JField("totalUsers", JInt(value.toInt)) // cast string to int
     }
   }
 
@@ -94,7 +95,12 @@ class TumblrApi(
    * @param includeReblogInfo Indicates whether to return reblog information. Returns the various reblogged_ fields.
    * @param includeNotesInfo  Indicates whether to return notes information. Returns note count and note metadata.
    */
-  def getBlogPost(id: Long, baseHostname: String, includeReblogInfo: Boolean = false, includeNotesInfo: Boolean = false): Post = {
+  def getBlogPost(
+    id: Long,
+    baseHostname: String,
+    includeReblogInfo: Boolean = false,
+    includeNotesInfo: Boolean = false): Post = {
+
     val url = BaseUrl + "/blog/" + baseHostname + "/posts";
     val params: Map[String, String] = Map("id" -> id, "reblog_info" -> includeReblogInfo, "notes_info" -> includeNotesInfo)
     val posts: Seq[Post] = getJson(OAuthOrApiAuth, GET, url, params) \ "response" \ "posts"
@@ -118,18 +124,25 @@ class TumblrApi(
    * @param filter            Specifies the post format to return, other than HTML
    */
   def getBlogPosts(
-      baseHostname: String,
-      postType: PostType = AnyPostType,
-      tag: String = "",
-      limit: Int = 20,
-      offset: Int = 0,
-      includeReblogInfo: Boolean = false,
-      includeNotesInfo: Boolean = false,
-      filter: PostFilter = HtmlFilter): BlogPosts = {
+    baseHostname: String,
+    postType: PostType = AnyPostType,
+    tag: String = "",
+    limit: Int = 20,
+    offset: Int = 0,
+    includeReblogInfo: Boolean = false,
+    includeNotesInfo: Boolean = false,
+    filter: PostFilter = HtmlFilter): BlogPosts = {
 
     val url = BaseUrl + "/blog/" + baseHostname + "/posts/" + postType
-    val params: Map[String, String] = Map("tag" -> tag, "limit" -> limit, "offset" -> offset, "reblog_info" -> includeReblogInfo,
-                                          "notes_info" -> includeNotesInfo, "filter" -> filter)
+    val params: Map[String, String] =
+      Map(
+        "tag" -> tag,
+        "limit" -> limit,
+        "offset" -> offset,
+        "reblog_info" -> includeReblogInfo,
+        "notes_info" -> includeNotesInfo,
+        "filter" -> filter)
+
     val json = getJson(OAuthOrApiAuth, GET, url, params) \ "response"
     new BlogPosts(json \ "blog", json \ "posts", json \ "totalPosts")
   }
@@ -142,7 +155,12 @@ class TumblrApi(
    * @param offset       Post number to start at (0 = first post)
    * @param filter       Specifies the post format to return, other than HTML
    */
-  def getQueuedPosts(baseHostname: String, limit: Int = 20, offset: Int = 0, filter: PostFilter = HtmlFilter): Seq[Post] = {
+  def getQueuedPosts(
+    baseHostname: String,
+    limit: Int = 20,
+    offset: Int = 0,
+    filter: PostFilter = HtmlFilter): Seq[Post] = {
+
     val url = BaseUrl + "/blog/" + baseHostname + "/posts/queue"
     val params: Map[String, String] = Map("limit" -> limit, "offset" -> offset, "filter" -> filter)
     getJson(OAuth, GET, url, params) \ "response" \ "posts"
@@ -168,7 +186,12 @@ class TumblrApi(
    * @param offset       Post number to start at (0 = first post)
    * @param filter       Specifies the post format to return, other than HTML
    */
-  def getSubmissionPosts(baseHostname: String, limit: Int = 20, offset: Int = 0, filter: PostFilter = HtmlFilter): Seq[Post] = {
+  def getSubmissionPosts(
+    baseHostname: String,
+    limit: Int = 20,
+    offset: Int = 0,
+    filter: PostFilter = HtmlFilter): Seq[Post] = {
+
     val url = BaseUrl + "/blog/" + baseHostname + "/posts/submission?offset=" + offset + "&filter=" + filter
     val params: Map[String, String] = Map("limit" -> limit, "offset" -> offset, "filter" -> filter)
     getJson(OAuth, GET, url, params) \ "response" \ "posts"
@@ -235,7 +258,8 @@ class TumblrApi(
   /**
    * Get a uer's information
    *
-   * Use this method to retrieve the user's account information that matches the OAuth credentials submitted with the request.
+   * Use this method to retrieve the user's account information that matches the OAuth credentials submitted
+   * with the request.
    */
   def getUserInfo(): User = {
     val url = BaseUrl + "/user/info"
@@ -255,16 +279,23 @@ class TumblrApi(
    * @param includeNotesInfo  Indicates whether to return notes information. Returns note count and note metadata.
    */
   def getUserDashboard(
-      postType: PostType = AnyPostType,
-      limit: Int = 20,
-      offset: Int = 0,
-      sinceId: Int = 0,
-      includeReblogInfo: Boolean = false,
-      includeNotesInfo: Boolean  = false): Seq[Post] = {
+    postType: PostType = AnyPostType,
+    limit: Int = 20,
+    offset: Int = 0,
+    sinceId: Int = 0,
+    includeReblogInfo: Boolean = false,
+    includeNotesInfo: Boolean  = false): Seq[Post] = {
 
     val url = BaseUrl + "/user/dashboard"
-    val params: Map[String, String] = Map("limit" -> limit, "offset" -> offset, "type" -> postType, "since_id" -> sinceId,
-                                          "reblog_info" -> includeReblogInfo, "notes_info" -> includeNotesInfo)
+    val params: Map[String, String] =
+      Map(
+        "limit" -> limit,
+        "offset" -> offset,
+        "type" -> postType,
+        "since_id" -> sinceId,
+        "reblog_info" -> includeReblogInfo,
+        "notes_info" -> includeNotesInfo)
+
     getJson(OAuth, GET, url, params) \ "response" \ "posts"
   }
 
@@ -351,9 +382,16 @@ class TumblrApi(
    * @param limit  The number of results to return: 1–20, inclusive
    * @param filter Specifies the post format to return, other than HTML
    */
-  def getTaggedPosts(tag: String, before: Option[Int] = None, limit: Int = 20, filter: PostFilter = HtmlFilter): Seq[Post] = {
+  def getTaggedPosts(
+    tag: String,
+    before: Option[Int] = None,
+    limit: Int = 20,
+    filter: PostFilter = HtmlFilter): Seq[Post] = {
+
     val url = BaseUrl + "/tagged"
-    val params: Map[String, String] = Map("tag" -> tag, "before" -> before.getOrElse(""), "limit" -> limit, "filter" -> filter)
+    val params: Map[String, String] =
+      Map("tag" -> tag, "before" -> before.getOrElse(""), "limit" -> limit, "filter" -> filter)
+
     getJson(OAuthOrApiAuth, GET, url, params) \ "response"
   }
 
@@ -394,16 +432,24 @@ class TumblrApi(
   private case object OAuth extends AuthMethod
   private case object OAuthOrApiAuth extends AuthMethod
 
-  private def getJson(auth: AuthMethod, method: HttpMethod, url: String, params: Map[String, String] = Map(), files: Map[String, File] = Map()): JValue = {
+  private def getJson(
+    auth: AuthMethod,
+    method: HttpMethod,
+    url: String,
+    params: Map[String, String] = Map(),
+    files: Map[String, File] = Map()): JValue = {
+
     val paramsWithApiKey = params ++ Map("api_key" -> apiKey)
     val response = auth match {
       case ApiAuth => makeRequest(method, url, paramsWithApiKey, files)
       case OAuth => (apiSecret, accessKey, accessSecret) match {
-        case (Some(s), Some(key), Some(secret)) => makeOAuthRequest(method, url, paramsWithApiKey, files, apiKey, s, key, secret)
+        case (Some(s), Some(key), Some(secret)) =>
+          makeOAuthRequest(method, url, paramsWithApiKey, files, apiKey, s, key, secret)
         case _ => throw new TumblrApiOAuthException()
       }
       case OAuthOrApiAuth => (apiSecret, accessKey, accessSecret) match {
-        case (Some(s), Some(key), Some(secret)) => makeOAuthRequest(method, url, paramsWithApiKey, files, apiKey, s, key, secret)
+        case (Some(s), Some(key), Some(secret)) =>
+        makeOAuthRequest(method, url, paramsWithApiKey, files, apiKey, s, key, secret)
         case _ => makeRequest(method, url, paramsWithApiKey, files)
       }
     }
