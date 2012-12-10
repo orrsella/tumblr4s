@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
- package tumblr4s
+package tumblr4s
 
 import org.json4s._
 import org.json4s.native.JsonMethods._
@@ -22,8 +22,8 @@ import org.json4s.native.JsonMethods._
 /**
  * A tumblr API exception
  *
- * @param status The HTTP/1.1 status code
- * @param message The HTTP/1.1 status message, is available
+ * @param status   The HTTP/1.1 status code
+ * @param message  The HTTP/1.1 status message, is available
  * @param contents The contents of the errornous response
  */
 case class TumblrApiException(status: Int, message: String, contents: String, cause: Exception)
@@ -42,11 +42,9 @@ object TumblrApiException {
   def fromJson(status: Int, contents: String, cause: Exception) = {
     try {
       val json = parse(contents)
-      new TumblrApiException(
-        (json \ "meta" \ "status").extract[Int],
-        (json \ "meta" \ "msg").extract[String],
-        contents,
-        cause)
+      val status = (json \ "meta" \ "status").extract[Int]
+      val message = (json \ "meta" \ "msg").extract[String]
+      new TumblrApiException(status, message, contents, cause)
     } catch {
       case e => println(e); new TumblrApiException(status, "Unknown error", contents, cause)
     }
