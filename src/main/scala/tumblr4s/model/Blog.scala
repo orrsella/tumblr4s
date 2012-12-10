@@ -39,4 +39,5 @@ class Blog(
     val description: String,
     val ask: Boolean,
     val askAnon: Option[Boolean],
-    val likes: Option[Int]) extends TumblrObject
+    val likes: Option[Int])
+  extends TumblrObject

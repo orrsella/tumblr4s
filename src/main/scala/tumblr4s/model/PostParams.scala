@@ -176,7 +176,7 @@ class LinkPostParams(
  *
  * @param baseHostname The standard or custom blog hostname
  * @param title        The title of the chat
- * @param conversation The text of the conversation/chat, with dialogue labels (no HTML), dialogue parts separated with '\r\n'
+ * @param conversation The text of the conversation/chat, with dialogue labels (no HTML), parts separated with '\r\n'
  * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
  * @param tags         Comma-separated tags for this post
  * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
