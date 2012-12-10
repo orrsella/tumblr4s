@@ -94,14 +94,14 @@ class TumblrApi(
    * @param includeReblogInfo Indicates whether to return reblog information. Returns the various reblogged_ fields.
    * @param includeNotesInfo  Indicates whether to return notes information. Returns note count and note metadata.
    */
-  def getBlogPost(id: Long, baseHostname: String, includeReblogInfo: Boolean = false, includeNotesInfo: Boolean = false): Option[Post] = {
+  def getBlogPost(id: Long, baseHostname: String, includeReblogInfo: Boolean = false, includeNotesInfo: Boolean = false): Post = {
     val url = BaseUrl + "/blog/" + baseHostname + "/posts";
     val params: Map[String, String] = Map("id" -> id, "reblog_info" -> includeReblogInfo, "notes_info" -> includeNotesInfo)
     val posts: Seq[Post] = getJson(OAuthOrApiAuth, GET, url, params) \ "response" \ "posts"
 
     posts match {
-      case post :: _ => Some(post)
-      case _ => None
+      case post :: _ => post
+      case _ => throw new TumblrApiException(404, "Not Found", "", new Exception())
     }
   }
 
