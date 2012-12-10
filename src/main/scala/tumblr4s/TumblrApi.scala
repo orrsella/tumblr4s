@@ -61,7 +61,7 @@ class TumblrApi(
     new Avatar(BaseUrl + "/blog/" + baseHostname + "/avatar/" + size.size)
 
   /**
-   * Retrieve blog info
+   * Retrieve a blog's likes
    *
    * @param baseHostname The standard or custom blog hostname
    */
