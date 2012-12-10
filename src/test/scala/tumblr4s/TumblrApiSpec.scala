@@ -27,8 +27,21 @@ class TumblrApiSpec extends FlatSpec {
   val apiSecret = "secret"
 
   trait DummyHttpClient extends HttpClient {
-    def makeRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, File] = Map()): String = ""
-    def makeOAuthRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, File], consumerKey: String, consumerSecret: String, accessKey: String, accessSecret: String): String = ""
+    def makeRequest(
+      method: HttpMethod,
+      requestUrl: String,
+      params: Map[String, String],
+      files: Map[String, File]): String = ""
+
+    def makeOAuthRequest(
+      method: HttpMethod,
+      requestUrl: String,
+      params: Map[String, String],
+      files: Map[String, File],
+      consumerKey: String,
+      consumerSecret: String,
+      accessKey: String,
+      accessSecret: String): String = ""
   }
 
   val tumblrNoOAuth = new TumblrApi(apiKey, apiSecret, None, None) with DummyHttpClient

@@ -54,8 +54,11 @@ class TextPostParamsSpec extends PostParamsSpec[TextPostParams]() {
   def name = "Text"
   def postType = TextPostType
   def validParams = List(new TextPostParams(baseHostname, title, body))
-  def invalidParams = List(new TextPostParams("", title, body),
-                           new TextPostParams(baseHostname, title, ""))
+  def invalidParams =
+    List(
+      new TextPostParams("", title, body),
+      new TextPostParams(baseHostname, title, ""))
+
   override def mapKeys = super.mapKeys ++ List("title", "body")
 }
 
@@ -67,10 +70,16 @@ class PhotoPostParamsSpec extends PostParamsSpec[PhotoPostParams]() {
 
   def name = "Photo"
   def postType = PhotoPostType
-  def validParams = List(new PhotoPostParams(baseHostname, caption, link, source, Nil),
-                         new PhotoPostParams(baseHostname, caption, link, "", data))
-  def invalidParams = List(new PhotoPostParams("", caption, link, source, data),
-                           new PhotoPostParams(baseHostname, caption, link, "", Nil))
+  def validParams =
+    List(
+      new PhotoPostParams(baseHostname, caption, link, source, Nil),
+      new PhotoPostParams(baseHostname, caption, link, "", data))
+
+  def invalidParams =
+    List(
+      new PhotoPostParams("", caption, link, source, data),
+      new PhotoPostParams(baseHostname, caption, link, "", Nil))
+
   override def mapKeys = super.mapKeys ++ List("caption", "link", "source")
 }
 
@@ -80,10 +89,16 @@ class QuotePostParamsSpec extends PostParamsSpec[QuotePostParams]() {
 
   def name = "Quote"
   def postType = QuotePostType
-  def validParams = List(new QuotePostParams(baseHostname, quote, source),
-                         new QuotePostParams(baseHostname, quote, ""))
-  def invalidParams = List(new QuotePostParams("", quote, source),
-                           new QuotePostParams(baseHostname, "", source))
+  def validParams =
+    List(
+      new QuotePostParams(baseHostname, quote, source),
+      new QuotePostParams(baseHostname, quote, ""))
+
+  def invalidParams =
+    List(
+      new QuotePostParams("", quote, source),
+      new QuotePostParams(baseHostname, "", source))
+
   override def mapKeys = super.mapKeys ++ List("quote", "source")
 }
 
@@ -94,10 +109,16 @@ class LinkPostParamsSpec extends PostParamsSpec[LinkPostParams]() {
 
   def name = "Link"
   def postType = LinkPostType
-  def validParams = List(new LinkPostParams(baseHostname, title, url, description),
-                         new LinkPostParams(baseHostname, "", url, ""))
-  def invalidParams = List(new LinkPostParams("", title, url, description),
-                           new LinkPostParams(baseHostname, title, "", description))
+  def validParams =
+    List(
+      new LinkPostParams(baseHostname, title, url, description),
+      new LinkPostParams(baseHostname, "", url, ""))
+
+  def invalidParams =
+    List(
+      new LinkPostParams("", title, url, description),
+      new LinkPostParams(baseHostname, title, "", description))
+
   override def mapKeys = super.mapKeys ++ List("title", "url", "description")
 }
 
@@ -107,10 +128,16 @@ class ChatPostParamsSpec extends PostParamsSpec[ChatPostParams]() {
 
   def name = "Chat"
   def postType = ChatPostType
-  def validParams = List(new ChatPostParams(baseHostname, title, conversation),
-                         new ChatPostParams(baseHostname, "", conversation))
-  def invalidParams = List(new ChatPostParams("", title, conversation),
-                           new ChatPostParams(baseHostname, title, ""))
+  def validParams =
+    List(
+      new ChatPostParams(baseHostname, title, conversation),
+      new ChatPostParams(baseHostname, "", conversation))
+
+  def invalidParams =
+    List(
+      new ChatPostParams("", title, conversation),
+      new ChatPostParams(baseHostname, title, ""))
+
   override def mapKeys = super.mapKeys ++ List("title", "conversation")
 }
 
@@ -121,10 +148,16 @@ class AudioPostParamsSpec extends PostParamsSpec[AudioPostParams]() {
 
   def name = "Audio"
   def postType = AudioPostType
-  def validParams = List(new AudioPostParams(baseHostname, caption, externalUrl, None),
-                         new AudioPostParams(baseHostname, caption, "", data))
-  def invalidParams = List(new AudioPostParams("", caption, externalUrl, data),
-                           new AudioPostParams(baseHostname, caption, "", None))
+  def validParams =
+    List(
+      new AudioPostParams(baseHostname, caption, externalUrl, None),
+      new AudioPostParams(baseHostname, caption, "", data))
+
+  def invalidParams =
+    List(
+      new AudioPostParams("", caption, externalUrl, data),
+      new AudioPostParams(baseHostname, caption, "", None))
+
   override def mapKeys = super.mapKeys ++ List("caption", "external_url")
 }
 
@@ -135,9 +168,15 @@ class VideoPostParamsSpec extends PostParamsSpec[VideoPostParams]() {
 
   def name = "Audio"
   def postType = VideoPostType
-  def validParams = List(new VideoPostParams(baseHostname, caption, embed, None),
-                         new VideoPostParams(baseHostname, caption, "", data))
-  def invalidParams = List(new VideoPostParams("", caption, embed, data),
-                           new VideoPostParams(baseHostname, caption, "", None))
+  def validParams =
+    List(
+      new VideoPostParams(baseHostname, caption, embed, None),
+      new VideoPostParams(baseHostname, caption, "", data))
+
+  def invalidParams =
+    List(
+      new VideoPostParams("", caption, embed, data),
+      new VideoPostParams(baseHostname, caption, "", None))
+
   override def mapKeys = super.mapKeys ++ List("caption", "embed")
 }
