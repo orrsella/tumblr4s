@@ -74,7 +74,7 @@ try {
   val postId: Long = tumblr.post(params1)
 
   // update the created post and publish:
-  val params2 = new TextPostParams(baseHostname, "Other Title", "Diff body", state = PublishPostState)
+  val params2 = new TextPostParams(baseHostname, "Other Title", "Diff body", PublishPostState)
   val updatedPostId = tumblr.editPost(postId, params2) // updatedPostId == postId
   val deletedPostId = tumblr.deletePost(postId, baseHostname)
 
@@ -102,7 +102,7 @@ trait MyHttpClient extends HttpClient {
     method: HttpMethod,
     requestUrl: String,
     params: Map[String, String],
-    files: Map[String, File]): String = throw new NotImplementedException()
+    files: Map[String, File]): String = sys.error("Not Implemented")
 
   def makeOAuthRequest(
     method: HttpMethod,
@@ -112,7 +112,7 @@ trait MyHttpClient extends HttpClient {
     consumerKey: String,
     consumerSecret: String,
     accessKey: String,
-    accessSecret: String): String = throw new NotImplementedException()
+    accessSecret: String): String = sys.error("Not Implemented")
 }
 
 val myTumblr = new TumblrApi(apiKey) with MyHttpClient
