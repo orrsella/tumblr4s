@@ -91,7 +91,7 @@ try {
 
 The `TumblrApi` class uses the [Scala Cake Pattern](http://www.cakesolutions.net/teamblogs/2011/12/19/cake-pattern-in-depth/) to inject HTTP functionality via the `HttpClient` trait. This is mainly so you can easily use a different library, user-agent string, introduce throttling or proxy, etc. in it's implementation. It also helps with testing.
 
-Constructing `TumblrApi` from it's companion object (as shown above) automatically mixes in `DispatchHttpClient`, which – as you can imagine – uses Dispatch for it's implementation. If you'd like to implement your own version of `HttpClient`, simply do it like this:
+Constructing `TumblrApi` from it's companion object (as shown [above](#authentication)) automatically mixes in `DispatchHttpClient`, which – as you can imagine – uses Dispatch for it's implementation. If you'd like to implement your own version of `HttpClient`, simply do it like this:
 
 ```scala
 import tumblr4s.http.{HttpClient, HttpMethod}
