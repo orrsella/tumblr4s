@@ -20,6 +20,6 @@ package tumblr4s.model
  * A blog's followers
  *
  * @param totalUsers The number of users currently following the blog
- * @param users 		 Each item is a follower
+ * @param users      Each item is a follower
  */
 class BlogFollowers(val totalUsers: Int, val users: Seq[Follower]) extends TumblrObject

@@ -32,7 +32,14 @@ sealed abstract class PostParams extends TumblrObject {
   def slug: String
   def isValid: Boolean = !baseHostname.isEmpty
   def toMap: Map[String, String] =
-    Map("type" -> `type`.toString, "state" -> state.toString, "tags" -> tags, "tweet" -> tweet, "date" -> date, "format" -> format.toString, "slug" -> slug)
+    Map(
+      "type" -> `type`.toString,
+      "state" -> state.toString,
+      "tags" -> tags,
+      "tweet" -> tweet,
+      "date" -> date,
+      "format" -> format.toString,
+      "slug" -> slug)
   def toFilesMap: Map[String, File] = Map()
 }
 
@@ -40,14 +47,15 @@ sealed abstract class PostParams extends TumblrObject {
  * Parameters for a text post
  *
  * @param baseHostname The standard or custom blog hostname
- * @param title  The optional title of the post, HTML entities must be escaped
- * @param body   The full post body, HTML allowed
- * @param state  The state of the post. Specify one of the following:  published, draft, queue, private
- * @param tags   Comma-separated tags for this post
- * @param tweet  Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet
- * @param date   The GMT date and time of the post, as a string
- * @param format Sets the format type of post. Supported formats are: html & markdown
- * @param slug   Add a short text summary to the end of the post URL
+ * @param title        The optional title of the post, HTML entities must be escaped
+ * @param body         The full post body, HTML allowed
+ * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
+ * @param tags         Comma-separated tags for this post
+ * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
+ *                     the default tweet
+ * @param date         The GMT date and time of the post, as a string
+ * @param format       Sets the format type of post. Supported formats are: html & markdown
+ * @param slug         Add a short text summary to the end of the post URL
  */
 class TextPostParams(
     val baseHostname: String,
@@ -69,16 +77,18 @@ class TextPostParams(
  * Parameters for a photo post
  *
  * @param baseHostname The standard or custom blog hostname
- * @param caption The user-supplied caption, HTML allowed
- * @param link    The "click-through URL" for the photo
- * @param source  The photo source URL, either source or data required
- * @param data    Sequence of image files, each limited to 10MB (add more than one images to create a slide show), either source or data required
- * @param state   The state of the post. Specify one of the following:  published, draft, queue, private
- * @param tags    Comma-separated tags for this post
- * @param tweet   Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet
- * @param date    The GMT date and time of the post, as a string
- * @param format  Sets the format type of post. Supported formats are: html & markdown
- * @param slug    Add a short text summary to the end of the post URL
+ * @param caption      The user-supplied caption, HTML allowed
+ * @param link         The "click-through URL" for the photo
+ * @param source       The photo source URL, either source or data required
+ * @param data         Sequence of image files, each limited to 10MB (add more than one images to create a slide show),
+ *                     either source or data required
+ * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
+ * @param tags         Comma-separated tags for this post
+ * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
+ *                     the default tweet
+ * @param date         The GMT date and time of the post, as a string
+ * @param format       Sets the format type of post. Supported formats are: html & markdown
+ * @param slug         Add a short text summary to the end of the post URL
  */
 class PhotoPostParams(
     val baseHostname: String,
@@ -103,14 +113,15 @@ class PhotoPostParams(
  * Parameters for a quote post
  *
  * @param baseHostname The standard or custom blog hostname
- * @param quote  The full text of the quote
- * @param source Cited source, HTML allowed
- * @param state  The state of the post. Specify one of the following:  published, draft, queue, private
- * @param tags   Comma-separated tags for this post
- * @param tweet  Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet
- * @param date   The GMT date and time of the post, as a string
- * @param format Sets the format type of post. Supported formats are: html & markdown
- * @param slug   Add a short text summary to the end of the post URL
+ * @param quote        The full text of the quote
+ * @param source       Cited source, HTML allowed
+ * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
+ * @param tags         Comma-separated tags for this post
+ * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
+  *                    the default tweet
+ * @param date         The GMT date and time of the post, as a string
+ * @param format       Sets the format type of post. Supported formats are: html & markdown
+ * @param slug         Add a short text summary to the end of the post URL
  */
 class QuotePostParams(
     val baseHostname: String,
@@ -132,15 +143,16 @@ class QuotePostParams(
  * Parameters for a link post
  *
  * @param baseHostname The standard or custom blog hostname
- * @param title       The title of the page the link points to
- * @param url         The link
- * @param description A user-supplied description, HTML allowed
- * @param state       The state of the post. Specify one of the following:  published, draft, queue, private
- * @param tags        Comma-separated tags for this post
- * @param tweet       Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet
- * @param date        The GMT date and time of the post, as a string
- * @param format      Sets the format type of post. Supported formats are: html & markdown
- * @param slug        Add a short text summary to the end of the post URL
+ * @param title        The title of the page the link points to
+ * @param url          The link
+ * @param description  A user-supplied description, HTML allowed
+ * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
+ * @param tags         Comma-separated tags for this post
+ * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
+ *                     the default tweet
+ * @param date         The GMT date and time of the post, as a string
+ * @param format       Sets the format type of post. Supported formats are: html & markdown
+ * @param slug         Add a short text summary to the end of the post URL
  */
 class LinkPostParams(
     val baseHostname: String,
@@ -167,7 +179,8 @@ class LinkPostParams(
  * @param conversation The text of the conversation/chat, with dialogue labels (no HTML), dialogue parts separated with '\r\n'
  * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
  * @param tags         Comma-separated tags for this post
- * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet
+ * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
+ *                     the default tweet
  * @param date         The GMT date and time of the post, as a string
  * @param format       Sets the format type of post. Supported formats are: html & markdown
  * @param slug         Add a short text summary to the end of the post URL
@@ -192,15 +205,16 @@ class ChatPostParams(
  * Parameters for an audio post
  *
  * @param baseHostname The standard or custom blog hostname
- * @param caption     The user-supplied caption
- * @param externalUrl The URL of the site that hosts the audio file (not tumblr), either externalUrl or data required
- * @param data        MP3 audio file limited to 10MB, either externalUrl or data required
- * @param state       The state of the post. Specify one of the following:  published, draft, queue, private
- * @param tags        Comma-separated tags for this post
- * @param tweet       Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet
- * @param date        The GMT date and time of the post, as a string
- * @param format      Sets the format type of post. Supported formats are: html & markdown
- * @param slug        Add a short text summary to the end of the post URL
+ * @param caption      The user-supplied caption
+ * @param externalUrl  The URL of the site that hosts the audio file (not tumblr), either externalUrl or data required
+ * @param data         MP3 audio file limited to 10MB, either externalUrl or data required
+ * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
+ * @param tags         Comma-separated tags for this post
+ * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
+ *                     the default tweet
+ * @param date         The GMT date and time of the post, as a string
+ * @param format       Sets the format type of post. Supported formats are: html & markdown
+ * @param slug         Add a short text summary to the end of the post URL
  */
 class AudioPostParams(
     val baseHostname: String,
@@ -227,15 +241,16 @@ class AudioPostParams(
  * Parameters for a video post
  *
  * @param baseHostname The standard or custom blog hostname
- * @param caption The user-supplied caption
- * @param embed   HTML embed code for the video, either embed or data required
- * @param data    MP3 audio file limited to 100MB, either embed or data required
- * @param state   The state of the post. Specify one of the following:  published, draft, queue, private
- * @param tags    Comma-separated tags for this post
- * @param tweet   Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet
- * @param date    The GMT date and time of the post, as a string
- * @param format  Sets the format type of post. Supported formats are: html & markdown
- * @param slug    Add a short text summary to the end of the post URL
+ * @param caption      The user-supplied caption
+ * @param embed        HTML embed code for the video, either embed or data required
+ * @param data         MP3 audio file limited to 100MB, either embed or data required
+ * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
+ * @param tags         Comma-separated tags for this post
+ * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
+ *                     the default tweet
+ * @param date         The GMT date and time of the post, as a string
+ * @param format       Sets the format type of post. Supported formats are: html & markdown
+ * @param slug         Add a short text summary to the end of the post URL
  */
 class VideoPostParams(
     val baseHostname: String,
@@ -262,12 +277,13 @@ class VideoPostParams(
  * Parameters for reblogging a post
  *
  * @param baseHostname The standard or custom blog hostname
- * @param state  The state of the post. Specify one of the following:  published, draft, queue, private
- * @param tags   Comma-separated tags for this post
- * @param tweet  Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet
- * @param date   The GMT date and time of the post, as a string
- * @param format Sets the format type of post. Supported formats are: html & markdown
- * @param slug   Add a short text summary to the end of the post URL
+ * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
+ * @param tags         Comma-separated tags for this post
+ * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
+ *                     the default tweet
+ * @param date         The GMT date and time of the post, as a string
+ * @param format       Sets the format type of post. Supported formats are: html & markdown
+ * @param slug         Add a short text summary to the end of the post URL
  */
 class ReblogPostParams(
     val baseHostname: String,

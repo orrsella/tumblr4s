@@ -21,7 +21,8 @@ package tumblr4s.model
  *
  * @param title       The display title of the blog
  * @param posts       The total number of posts to this blog
- * @param name        The short blog name that appears before tumblr.com in a standard blog hostname (and before the domain in a custom blog hostname)
+ * @param name        The short blog name that appears before tumblr.com in a standard blog hostname (and before the domain
+ *                    in a custom blog hostname)
  * @param url         The blog's url
  * @param updated     The time of the most recent post, in seconds since the epoch
  * @param description You guessed it! The blog's description

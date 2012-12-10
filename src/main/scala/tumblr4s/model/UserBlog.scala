@@ -36,4 +36,5 @@ class UserBlog(
     val followers: Int,
     val tweet: String,
     val facebook: String,
-    val `type`: String) extends TumblrObject
+    val `type`: String)
+  extends TumblrObject

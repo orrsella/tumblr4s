@@ -25,4 +25,10 @@ package tumblr4s.model
  * @param likes             The total count of the user's likes
  * @param blogs             The blogs the user has permissions to post to
  */
-class User(val following: Int, val defaultPostFormat: String, val name: String, val likes: Int, val blogs: Seq[UserBlog]) extends TumblrObject
+class User(
+    val following: Int,
+    val defaultPostFormat: String,
+    val name: String,
+    val likes: Int,
+    val blogs: Seq[UserBlog])
+  extends TumblrObject
