@@ -37,7 +37,8 @@ trait DispatchHttpClient extends HttpClient {
    * @param method     The http method to use
    * @param requestUrl The url to use
    * @param params     A map of string name-value parameters for the request
-   * @param files      A map of files to be sent as multipart post (using dispatch mime: https://github.com/dispatch/dispatch/blob/master/mime/src/main/scala/Mime.scala)
+   * @param files      A map of files to be sent as multipart post (using dispatch mime:
+   *                   https://github.com/dispatch/dispatch/blob/master/mime/src/main/scala/Mime.scala)
    */
   def makeRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, File]): String = {
     val http = new Http with NoLogging
@@ -62,13 +63,23 @@ trait DispatchHttpClient extends HttpClient {
    * @param method         The http method to use
    * @param requestUrl     The url to use
    * @param params         A map of string name-value parameters for the request
-   * @param files          A map of files to be sent as multipart post (using dispatch mime: https://github.com/dispatch/dispatch/blob/master/mime/src/main/scala/Mime.scala)
+   * @param files          A map of files to be sent as multipart post (using dispatch mime:
+   *                       https://github.com/dispatch/dispatch/blob/master/mime/src/main/scala/Mime.scala)
    * @param consumerKey    OAuth consumer key
    * @param consumerSecret OAuth consumer secret key
    * @param accessKey      OAuth access token key
    * @param accessSecret   OAuth access token secret
    */
-  def makeOAuthRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, File], consumerKey: String, consumerSecret: String, accessKey: String, accessSecret: String): String = {
+  def makeOAuthRequest(
+    method: HttpMethod,
+    requestUrl: String,
+    params: Map[String, String],
+    files: Map[String, File],
+    consumerKey: String,
+    consumerSecret: String,
+    accessKey: String,
+    accessSecret: String): String = {
+
     val http = new Http with NoLogging
     try {
       val consumer = new Consumer(consumerKey, consumerSecret)

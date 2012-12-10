@@ -31,7 +31,7 @@ trait HttpClient {
    * @param params     A map of string name-value parameters for the request
    * @param files      A map of files to be sent as multipart post
    */
-  def makeRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, File] = Map()): String
+  def makeRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, File]): String
 
   /**
    * Make an OAuth request
@@ -45,5 +45,13 @@ trait HttpClient {
    * @param accessKey      OAuth access token key
    * @param accessSecret   OAuth access token secret
    */
-  def makeOAuthRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, File], consumerKey: String, consumerSecret: String, accessKey: String, accessSecret: String): String
+  def makeOAuthRequest(
+    method: HttpMethod,
+    requestUrl: String,
+    params: Map[String, String],
+    files: Map[String, File],
+    consumerKey: String,
+    consumerSecret: String,
+    accessKey: String,
+    accessSecret: String): String
 }
