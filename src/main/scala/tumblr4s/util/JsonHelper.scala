@@ -24,24 +24,26 @@ import org.json4s.native.JsonMethods._
  * Helper object for formatting and transformint json
  */
 object JsonHelper {
-	implicit val formats = DefaultFormats
-	val OneUnderscorePattern = """(.*)_(.)(.*)""".r
+  implicit val formats = DefaultFormats
+  val OneUnderscorePattern = """(.*)_(.)(.*)""".r
   val TwoUnderscorePattern = """(.*)_(.)(.*)_(.)(.*)""".r
 
   /**
    * Provide json representation of objects so they can print nicely
    */
-	def objectToJsonString(obj: Any): String = {
-		pretty(render(decompose(obj)))
-	}
+  def objectToJsonString(obj: Any): String = {
+    pretty(render(decompose(obj)))
+  }
 
   /**
    * Make all fields camelCased, removing all underscores
    */
-	def transformToCamelCaseKeys(json: JValue): JValue = {
-		json transformField {
-      case JField(TwoUnderscorePattern(a, b, c, d, e), value) => JField("%s%s%s%s%s".format(a, b.toUpperCase, c, d.toUpperCase, e), value)
-      case JField(OneUnderscorePattern(a, b, c), value) => JField("%s%s%s".format(a, b.toUpperCase, c), value)
+  def transformToCamelCaseKeys(json: JValue): JValue = {
+    json transformField {
+      case JField(TwoUnderscorePattern(a, b, c, d, e), value) =>
+        JField("%s%s%s%s%s".format(a, b.toUpperCase, c, d.toUpperCase, e), value)
+      case JField(OneUnderscorePattern(a, b, c), value) =>
+        JField("%s%s%s".format(a, b.toUpperCase, c), value)
     }
-	}
+  }
 }

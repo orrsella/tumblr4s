@@ -20,4 +20,4 @@
  * A tumblr API OAuth exception, indicating OAuth credentials are required for the invoked method
  */
 case class TumblrApiOAuthException()
-  extends Exception ("OAuth credentials required for this method, but TumblrApi constructed without them")
+  extends Exception("OAuth credentials required for this method, but TumblrApi constructed without them")

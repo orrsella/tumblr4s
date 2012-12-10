@@ -27,7 +27,11 @@ import org.json4s.native.JsonMethods._
  * @param contents The contents of the errornous response
  */
 case class TumblrApiException(status: Int, message: String, contents: String, cause: Exception)
-  extends Exception("Tumblr API Exception: status='" + status + "', message='" + message + "', contents='" + contents + "', cause='" + cause.getClass + "'")
+  extends Exception(
+    "Tumblr API Exception: status='" + status +
+    "', message='" + message +
+    "', contents='" + contents +
+    "', cause='" + cause.getClass + "'")
 
 /**
  * Companion object for constructing a TumblrApiException from json response
@@ -38,7 +42,11 @@ object TumblrApiException {
   def fromJson(status: Int, contents: String, cause: Exception) = {
     try {
       val json = parse(contents)
-      new TumblrApiException((json \ "meta" \ "status").extract[Int], (json \ "meta" \ "msg").extract[String], contents, cause)
+      new TumblrApiException(
+        (json \ "meta" \ "status").extract[Int],
+        (json \ "meta" \ "msg").extract[String],
+        contents,
+        cause)
     } catch {
       case e => println(e); new TumblrApiException(status, "Unknown error", contents, cause)
     }
