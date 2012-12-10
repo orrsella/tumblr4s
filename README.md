@@ -1,6 +1,6 @@
 # tumblr4s
 
-A simple and (hopefully) idiomatic Scala library for the [Tumblr API](http://www.tumblr.com/docs/en/api/v2). Provides all API functionality in native Scala code and objects (no json responses). See [this post](http://orrsella.com/post/XXXXXX) for some more background.
+A simple and (hopefully) idiomatic Scala library for the [Tumblr API](http://www.tumblr.com/docs/en/api/v2). Provides all API functionality in native Scala code and objects (no json responses). See [this post](http://orrsella.com/post/37654002423/introducing-tumblr4s-a-scala-library-for-the-tumblr-api) for some more background.
 
 ## Building
 
