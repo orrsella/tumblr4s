@@ -16,8 +16,6 @@
 
 package tumblr4s.model
 
-import java.io.File
-
 /**
  * Parameters for creating/editing a new generic post
  */
@@ -40,7 +38,7 @@ sealed abstract class PostParams extends TumblrObject {
       "date" -> date,
       "format" -> format.toString,
       "slug" -> slug)
-  def toFilesMap: Map[String, File] = Map()
+  def toFilesMap: Map[String, String] = Map()
 }
 
 /**
@@ -80,8 +78,8 @@ class TextPostParams(
  * @param caption      The user-supplied caption, HTML allowed
  * @param link         The "click-through URL" for the photo
  * @param source       The photo source URL, either source or data required
- * @param data         Sequence of image files, each limited to 10MB (add more than one images to create a slide show),
- *                     either source or data required
+ * @param data         Sequence of paths to image files, each limited to 10MB (add more than one images to create a slide
+ *                     show), either source or data required
  * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
  * @param tags         Comma-separated tags for this post
  * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
@@ -95,7 +93,7 @@ class PhotoPostParams(
     val caption: String = "",
     val link: String = "",
     val source: String = "",
-    val data: Seq[File] = Nil,
+    val data: Seq[String] = Nil,
     val state: PostState = PublishPostState,
     val tags: String = "",
     val tweet: String = "off",
@@ -207,7 +205,7 @@ class ChatPostParams(
  * @param baseHostname The standard or custom blog hostname
  * @param caption      The user-supplied caption
  * @param externalUrl  The URL of the site that hosts the audio file (not tumblr), either externalUrl or data required
- * @param data         MP3 audio file limited to 10MB, either externalUrl or data required
+ * @param data         Path to MP3 audio file limited to 10MB, either externalUrl or data required
  * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
  * @param tags         Comma-separated tags for this post
  * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
@@ -220,7 +218,7 @@ class AudioPostParams(
     val baseHostname: String,
     val caption: String = "",
     val externalUrl: String = "",
-    val data: Option[File] = None,
+    val data: Option[String] = None,
     val state: PostState = PublishPostState,
     val tags: String = "",
     val tweet: String = "off",
@@ -243,7 +241,7 @@ class AudioPostParams(
  * @param baseHostname The standard or custom blog hostname
  * @param caption      The user-supplied caption
  * @param embed        HTML embed code for the video, either embed or data required
- * @param data         MP3 audio file limited to 100MB, either embed or data required
+ * @param data         Path to video file limited to 100MB, either embed or data required
  * @param state        The state of the post. Specify one of the following:  published, draft, queue, private
  * @param tags         Comma-separated tags for this post
  * @param tweet        Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override
@@ -256,7 +254,7 @@ class VideoPostParams(
     val baseHostname: String,
     val caption: String = "",
     val embed: String = "",
-    val data: Option[File] = None,
+    val data: Option[String] = None,
     val state: PostState = PublishPostState,
     val tags: String = "",
     val tweet: String = "off",

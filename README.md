@@ -67,8 +67,6 @@ try {
 ### Posting
 
 ```scala
-import java.io.File
-
 try {
   val params1 = new TextPostParams(baseHostname, "Some Title", "Some <b>body</b>", DraftPostState, ...)
   val postId: Long = tumblr.post(params1)
@@ -78,7 +76,7 @@ try {
   val updatedPostId = tumblr.editPost(postId, params2) // updatedPostId == postId
   val deletedPostId = tumblr.deletePost(postId, baseHostname)
 
-  val photos: Seq[File] = List(new File("/path/to/file1"), new File("/path/to/file2"))
+  val photos: Seq[String] = List("/path/to/file1", "/path/to/file2")
   val photoParams = new PhotoPostParams(baseHostname, data = photos) // see known issues regarding photos
   val photoPostId = tumblr.post(photoParams)
 
@@ -102,13 +100,13 @@ trait MyHttpClient extends HttpClient {
     method: HttpMethod,
     requestUrl: String,
     params: Map[String, String],
-    files: Map[String, File]): String = sys.error("Not Implemented")
+    files: Map[String, String]): String = sys.error("Not Implemented")
 
   def makeOAuthRequest(
     method: HttpMethod,
     requestUrl: String,
     params: Map[String, String],
-    files: Map[String, File],
+    files: Map[String, String],
     consumerKey: String,
     consumerSecret: String,
     accessKey: String,

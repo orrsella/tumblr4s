@@ -16,8 +16,6 @@
 
 package tumblr4s.http
 
-import java.io.File
-
 /**
  * A generic http client
  */
@@ -31,7 +29,7 @@ trait HttpClient {
    * @param params     A map of string name-value parameters for the request
    * @param files      A map of files to be sent as multipart post
    */
-  def makeRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, File]): String
+  def makeRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, String]): String
 
   /**
    * Make an OAuth request
@@ -49,7 +47,7 @@ trait HttpClient {
     method: HttpMethod,
     requestUrl: String,
     params: Map[String, String],
-    files: Map[String, File],
+    files: Map[String, String],
     consumerKey: String,
     consumerSecret: String,
     accessKey: String,

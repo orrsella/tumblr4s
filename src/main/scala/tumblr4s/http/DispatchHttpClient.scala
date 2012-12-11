@@ -40,7 +40,7 @@ trait DispatchHttpClient extends HttpClient {
    * @param files      A map of files to be sent as multipart post (using dispatch mime:
    *                   https://github.com/dispatch/dispatch/blob/master/mime/src/main/scala/Mime.scala)
    */
-  def makeRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, File]): String = {
+  def makeRequest(method: HttpMethod, requestUrl: String, params: Map[String, String], files: Map[String, String]): String = {
     val http = new Http with NoLogging
     try {
       val request = url(requestUrl)
@@ -74,7 +74,7 @@ trait DispatchHttpClient extends HttpClient {
     method: HttpMethod,
     requestUrl: String,
     params: Map[String, String],
-    files: Map[String, File],
+    files: Map[String, String],
     consumerKey: String,
     consumerSecret: String,
     accessKey: String,
@@ -101,8 +101,8 @@ trait DispatchHttpClient extends HttpClient {
   /**
    * Add files to request
    */
-  private def addFiles(request: Request, files: Map[String, File]): Request = {
+  private def addFiles(request: Request, files: Map[String, String]): Request = {
     if (files.isEmpty) request
-    else addFiles(request, files.tail) <<* (files.head._1, files.head._2)
+    else addFiles(request, files.tail) <<* (files.head._1, new File(files.head._2))
   }
 }

@@ -437,7 +437,7 @@ class TumblrApi(
     method: HttpMethod,
     url: String,
     params: Map[String, String] = Map(),
-    files: Map[String, File] = Map()): JValue = {
+    files: Map[String, String] = Map()): JValue = {
 
     val paramsWithApiKey = params ++ Map("api_key" -> apiKey)
     val response = auth match {
