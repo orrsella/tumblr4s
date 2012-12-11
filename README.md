@@ -122,7 +122,7 @@ val myTumblr = new TumblrApi(apiKey) with MyHttpClient
 
 ## Feedback
 
-Any comments/suggestions? Let me know what you think – I'd love to hear from you. Send pull requests or contact me: [@orrsella](http://twitter.com/orrsella) or [orrsella.com](http://orrsella.com)
+Any comments/suggestions? Let me know what you think – I'd love to hear from you. Send pull requests, issues or contact me: [@orrsella](http://twitter.com/orrsella) and [orrsella.com](http://orrsella.com)
 
 ## License
 
