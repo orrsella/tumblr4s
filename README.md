@@ -118,7 +118,7 @@ val myTumblr = new TumblrApi(apiKey) with MyHttpClient
 
 ## Known Issues
 
-* The Tumblr API documentation for [posting photos](http://www.tumblr.com/docs/en/api/v2#posting) states that the `data` parameter in the `/post` request can be "One or more image files (submit multiple times to create a slide show)" and is of type "Array (URL-encoded binary contents)". However, this functionality does not seem to work, no matter which approached was tried for the multi-file upload. It seems that the first file is the only one used. Regardless, the multi-file implementation was still kept (as `Seq[File]`), so future attempts to fix this problem won't change the library's public API. For the time being, know that __only the first image file in a PhotoPostParams request will be used__. If you are able to fix this, or have an idea on how to, please let me know.
+* The Tumblr API documentation for [posting photos](http://www.tumblr.com/docs/en/api/v2#posting) states that the `data` parameter in the `/post` request can be "One or more image files (submit multiple times to create a slide show)" and is of type "Array (URL-encoded binary contents)". However, this functionality does not seem to work, no matter which approached was tried for the multi-file upload. It seems that the first file is the only one used. Regardless, the multi-file implementation was still kept (as `Seq[String]`), so future attempts to fix this problem won't change the library's public API. For the time being, know that __only the first image file in a PhotoPostParams request will be used__. If you are able to fix this, or have an idea on how to, please let me know.
 
 ## Feedback
 
