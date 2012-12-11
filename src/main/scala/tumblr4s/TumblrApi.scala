@@ -32,10 +32,10 @@ import tumblr4s.util._
  * @param accessSecret User OAuth access token secret
  */
 class TumblrApi(
-    private val apiKey: String,
-    private val apiSecret: Option[String] = None,
-    private val accessKey: Option[String] = None,
-    private val accessSecret: Option[String] = None) {
+    apiKey: String,
+    apiSecret: Option[String] = None,
+    accessKey: Option[String] = None,
+    accessSecret: Option[String] = None) {
 
   this: HttpClient =>
   private val BaseUrl = "http://api.tumblr.com/v2"
