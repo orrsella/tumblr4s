@@ -21,7 +21,7 @@ import org.json4s.Extraction._
 import org.json4s.native.JsonMethods._
 
 /**
- * Helper object for formatting and transformint json
+ * Helper object for formatting and transforming json
  */
 object JsonHelper {
   implicit val formats = DefaultFormats

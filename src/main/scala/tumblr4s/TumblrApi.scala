@@ -88,7 +88,7 @@ class TumblrApi(
   }
 
   /**
-   * Retreive a specific post
+   * Retrieve a specific post
    *
    * @param id                The id of the requested post
    * @param baseHostname      The standard or custom blog hostname
@@ -112,7 +112,7 @@ class TumblrApi(
   }
 
   /**
-   * Retreive a blog's published posts
+   * Retrieve a blog's published posts
    *
    * @param baseHostname      The standard or custom blog hostname
    * @param postType          The type of post to return
@@ -148,7 +148,7 @@ class TumblrApi(
   }
 
   /**
-   * Retreive queued posts
+   * Retrieve queued posts
    *
    * @param baseHostname The standard or custom blog hostname
    * @param limit        The number of posts to return: 1–20, inclusive
@@ -167,7 +167,7 @@ class TumblrApi(
   }
 
   /**
-   * Retreive draft posts
+   * Retrieve draft posts
    *
    * @param baseHostname The standard or custom blog hostname
    * @param filter       Specifies the post format to return, other than HTML
@@ -179,7 +179,7 @@ class TumblrApi(
   }
 
   /**
-   * Retreive submission posts
+   * Retrieve submission posts
    *
    * @param baseHostname The standard or custom blog hostname
    * @param limit        The number of posts to return: 1–20, inclusive
@@ -230,7 +230,7 @@ class TumblrApi(
    * Reblog a post
    *
    * @param id         The ID of the reblogged post on tumblelog
-   * @param id         The reblog key for the reblogged post
+   * @param reblogKey  The reblog key for the reblogged post
    * @param comment    A comment added to the reblogged post
    * @param postParams The parameters object for editing the post
    * @return           The edited post id
@@ -256,7 +256,7 @@ class TumblrApi(
   }
 
   /**
-   * Get a uer's information
+   * Get a user's information
    *
    * Use this method to retrieve the user's account information that matches the OAuth credentials submitted
    * with the request.
@@ -274,7 +274,7 @@ class TumblrApi(
    * @param postType          The type of post to return
    * @param limit             The number of posts to return: 1–20, inclusive
    * @param offset            Post number to start at (0 = first post)
-   * @param sinceId           Retun posts that have appeared after this id
+   * @param sinceId           Return posts that have appeared after this id
    * @param includeReblogInfo Indicates whether to return reblog information. Returns the various reblogged_ fields.
    * @param includeNotesInfo  Indicates whether to return notes information. Returns note count and note metadata.
    */
@@ -377,7 +377,7 @@ class TumblrApi(
   /**
    * Get posts with tag
    *
-   * @param tag    The tag on the post syou'd like to retrieve
+   * @param tag    The tag on the post you'd like to retrieve
    * @param before The timestamp of when you'd like to see posts before
    * @param limit  The number of results to return: 1–20, inclusive
    * @param filter Specifies the post format to return, other than HTML

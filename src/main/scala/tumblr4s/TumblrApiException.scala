@@ -24,7 +24,7 @@ import org.json4s.native.JsonMethods._
  *
  * @param status   The HTTP/1.1 status code
  * @param message  The HTTP/1.1 status message, is available
- * @param contents The contents of the errornous response
+ * @param contents The contents of the erroneous response
  */
 case class TumblrApiException(status: Int, message: String, contents: String, cause: Exception)
   extends Exception(
