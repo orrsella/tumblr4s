@@ -16,7 +16,6 @@
 
 package tumblr4s.model
 
-import java.io.File
 import org.scalatest.FlatSpec
 import tumblr4s.model._
 
@@ -66,7 +65,7 @@ class PhotoPostParamsSpec extends PostParamsSpec[PhotoPostParams]() {
   val caption = "caption"
   val link = "link"
   val source = "source"
-  val data = List(new File(""))
+  val data = List("")
 
   def name = "Photo"
   def postType = PhotoPostType
@@ -144,7 +143,7 @@ class ChatPostParamsSpec extends PostParamsSpec[ChatPostParams]() {
 class AudioPostParamsSpec extends PostParamsSpec[AudioPostParams]() {
   val caption = "caption"
   val externalUrl = "externalUrl"
-  val data = Some(new File(""))
+  val data = Some("")
 
   def name = "Audio"
   def postType = AudioPostType
@@ -164,7 +163,7 @@ class AudioPostParamsSpec extends PostParamsSpec[AudioPostParams]() {
 class VideoPostParamsSpec extends PostParamsSpec[VideoPostParams]() {
   val caption = "caption"
   val embed = "embed"
-  val data = Some(new File(""))
+  val data = Some("")
 
   def name = "Audio"
   def postType = VideoPostType

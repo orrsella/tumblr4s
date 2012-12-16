@@ -16,7 +16,6 @@
 
 package tumblr4s
 
-import java.io.File
 import org.scalatest.FlatSpec
 import tumblr4s.http._
 import tumblr4s.model._
@@ -31,20 +30,20 @@ class TumblrApiSpec extends FlatSpec {
       method: HttpMethod,
       requestUrl: String,
       params: Map[String, String],
-      files: Map[String, File]): String = ""
+      files: Map[String, String]): String = ""
 
     def makeOAuthRequest(
       method: HttpMethod,
       requestUrl: String,
       params: Map[String, String],
-      files: Map[String, File],
+      files: Map[String, String],
       consumerKey: String,
       consumerSecret: String,
       accessKey: String,
       accessSecret: String): String = ""
   }
 
-  val tumblrNoOAuth = new TumblrApi(apiKey, apiSecret, None, None) with DummyHttpClient
+  val tumblrNoOAuth = new TumblrApi(apiKey, None, None, None) with DummyHttpClient
 
   "TumblrApi without OAuth credentials" should "throw OAuth exception for required methods" in {
     intercept[TumblrApiOAuthException] {
