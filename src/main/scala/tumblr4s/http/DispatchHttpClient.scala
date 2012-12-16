@@ -16,10 +16,10 @@
 
 package tumblr4s.http
 
-import dispatch._
-import dispatch.mime.Mime._
-import dispatch.oauth.OAuth._
-import dispatch.oauth.{Consumer, Token}
+import dispatch.classic._
+import dispatch.classic.mime.Mime._
+import dispatch.classic.oauth.OAuth._
+import dispatch.classic.oauth.{Consumer, Token}
 import java.io.File
 import tumblr4s.TumblrApiException
 
