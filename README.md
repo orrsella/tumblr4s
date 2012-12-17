@@ -10,7 +10,7 @@ Use [sbt](http://www.scala-sbt.org/) (Simple Build Tool) to build.
 
 The following libraries are used:
 
-* [Dispatch 0.8.8 ("dispatch-classic")](http://dispatch-classic.databinder.net/Dispatch.html) for making HTTP requests (http, oauth and mime modules)
+* [Dispatch 0.8.9 ("dispatch-classic")](http://dispatch-classic.databinder.net/Dispatch.html) for making HTTP requests (http, oauth and mime modules)
 
 * [json4s 3.0.0](http://json4s.org/) for json parsing (essentially "lift-json but outside of the lift project")
 
