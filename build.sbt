@@ -1,8 +1,8 @@
 name := "tumblr4s"
 
-version := "1.1.0"
-
 organization := "com.orrsella"
+
+version := "1.1.0"
 
 scalaVersion := "2.9.2"
 
