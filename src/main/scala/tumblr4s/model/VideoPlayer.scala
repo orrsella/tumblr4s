@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tumblr4s.model
+package com.orrsella.tumblr4s.model
 
 /**
  * Embed video player object

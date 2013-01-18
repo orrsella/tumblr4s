@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 
-package tumblr4s.model
+package com.orrsella.tumblr4s.model
 
 abstract class TumblrObject extends Printable

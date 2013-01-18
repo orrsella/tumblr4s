@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package tumblr4s.model
+package com.orrsella.tumblr4s.model
 
-import tumblr4s.util.JsonHelper
+import com.orrsella.tumblr4s.util.JsonHelper
 
 /**
  * Provide json impl of toString

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tumblr4s.http
+package com.orrsella.tumblr4s.http
 
 sealed trait HttpMethod
 case object GET extends HttpMethod

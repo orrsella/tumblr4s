@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package tumblr4s
+package com.orrsella.tumblr4s
 
 import org.scalatest.FlatSpec
-import tumblr4s.http._
-import tumblr4s.model._
+import com.orrsella.tumblr4s.http._
+import com.orrsella.tumblr4s.model._
 
 class TumblrApiSpec extends FlatSpec {
   val baseHostname = "staff.tumblr.com"

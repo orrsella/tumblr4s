@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package tumblr4s.model
+package com.orrsella.tumblr4s.model
 
 import org.scalatest.FlatSpec
-import tumblr4s.model._
+import com.orrsella.tumblr4s.model._
 
 abstract class PostParamsSpec[T <: PostParams]() extends FlatSpec {
   def name: String

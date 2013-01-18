@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tumblr4s.model
+package com.orrsella.tumblr4s.model
 
 /**
  * Specifies the post format to return when querying for blog posts, other than HTML

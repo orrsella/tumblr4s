@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tumblr4s.http
+package com.orrsella.tumblr4s.http
 
 /**
  * A generic http client

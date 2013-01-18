@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package tumblr4s
+package com.orrsella.tumblr4s
 
+import com.orrsella.tumblr4s.http._
+import com.orrsella.tumblr4s.model._
+import com.orrsella.tumblr4s.util._
 import java.io.File
 import org.json4s._
 import org.json4s.native.JsonMethods._
-import tumblr4s.http._
-import tumblr4s.model._
-import tumblr4s.util._
 
 /**
  * The Tumblr API: http://www.tumblr.com/docs/en/api/v2

@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package tumblr4s.http
+package com.orrsella.tumblr4s.http
 
+import com.orrsella.tumblr4s.TumblrApiException
 import dispatch.classic._
 import dispatch.classic.mime.Mime._
 import dispatch.classic.oauth.OAuth._
 import dispatch.classic.oauth.{Consumer, Token}
 import java.io.File
-import tumblr4s.TumblrApiException
 
 /**
  * An implementation of HttpClient using databinder's Dispatch

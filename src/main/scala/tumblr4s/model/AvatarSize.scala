@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tumblr4s.model
+package com.orrsella.tumblr4s.model
 
 /**
  * The size of the avatar in pixels (square, one value for both length and width).

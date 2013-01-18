@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tumblr4s
+package com.orrsella.tumblr4s
 
 /**
  * A tumblr API OAuth exception, indicating OAuth credentials are required for the invoked method

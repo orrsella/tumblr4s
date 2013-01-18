@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tumblr4s.util
+package com.orrsella.tumblr4s.util
 
 import org.json4s._
 import org.json4s.Extraction._

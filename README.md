@@ -23,7 +23,7 @@ Working with the Tumblr API requires an API key (which is identical to the OAuth
 The `TumblrApi` class encapsulates all functionality found in the API. Construct it using the companion object:
 
 ```scala
-import tumblr4s._
+import com.orrsella.tumblr4s._
 
 val tumblr = TumblrApi(apiKey) // without OAuth capabilities
 ```
@@ -41,7 +41,7 @@ If you'll try to use an OAuth required method without the credentials supplied (
 All methods mirror the available [API functionality](http://www.tumblr.com/docs/en/api/v2) and have similar names. Here are some examples, with partial parameters (many more are available):
 
 ```scala
-import tumblr4s.model._
+import com.orrsella.tumblr4s.model._
 
 try {
   val baseHostname = "staff.tumblr.com" // a standard or custom blog hostname, see:
@@ -93,7 +93,7 @@ The `TumblrApi` class uses the [Scala Cake Pattern](http://www.cakesolutions.net
 Constructing `TumblrApi` from its companion object (as shown [above](#authentication)) automatically mixes in `DispatchHttpClient`, which – as you can imagine – uses Dispatch for its implementation. If you'd like to implement your own version of `HttpClient`, simply do it like this:
 
 ```scala
-import tumblr4s.http.{HttpClient, HttpMethod}
+import com.orrsella.tumblr4s.http.{HttpClient, HttpMethod}
 
 trait MyHttpClient extends HttpClient {
   def makeRequest(

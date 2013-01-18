@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tumblr4s.model
+package com.orrsella.tumblr4s.model
 
 /**
  * Parameters for creating/editing a new generic post
