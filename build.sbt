@@ -8,11 +8,11 @@ libraryDependencies ++= Seq(
   "net.databinder" %% "dispatch-http" % "0.8.9",
   "net.databinder" %% "dispatch-oauth" % "0.8.9",
   "net.databinder" %% "dispatch-mime" % "0.8.9",
-  "org.json4s" %% "json4s-native" % "3.0.0",
-  "org.scalatest" %% "scalatest" % "1.8" % "test")
+  "org.json4s" %% "json4s-native" % "3.1.0",
+  "org.scalatest" %% "scalatest" % "1.9.1" % "test")
 
 // publishing related
-crossScalaVersions := Seq("2.9.0", "2.9.1", "2.9.2")
+crossScalaVersions := Seq("2.9.0", "2.9.1", "2.9.2", "2.10.0")
 
 publishTo <<= version { v: String =>
   val nexus = "https://oss.sonatype.org/"
