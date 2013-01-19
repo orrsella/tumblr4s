@@ -12,11 +12,13 @@ libraryDependencies += "com.orrsella" %% "tumblr4s" % "1.0"
 
 ## Dependencies
 
+The library works with Scala 2.9.x and 2.10.0.
+
 The following libraries are used:
 
 * [Dispatch 0.8.9 ("dispatch-classic")](http://dispatch-classic.databinder.net/Dispatch.html) for making HTTP requests (http, oauth and mime modules)
 
-* [json4s 3.0.0](http://json4s.org/) for json parsing (essentially "lift-json but outside of the lift project")
+* [json4s 3.1.0](http://json4s.org/) for json parsing (essentially "lift-json but outside of the lift project")
 
 ## Usage
 
