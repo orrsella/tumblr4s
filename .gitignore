@@ -20,3 +20,4 @@ project/target
 .idea_modules
 
 src/main/scala/tumblr4s/Main.scala
+project/plugins.sbt
