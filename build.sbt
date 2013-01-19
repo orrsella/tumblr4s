@@ -2,7 +2,7 @@ name := "tumblr4s"
 
 organization := "com.orrsella"
 
-version := "1.1"
+version := "1.0.1-SNAPSHOT"
 
 libraryDependencies ++= Seq(
   "net.databinder" %% "dispatch-http" % "0.8.9",
@@ -12,7 +12,7 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "1.8" % "test")
 
 // publishing related
-crossScalaVersions := Seq("2.9.2", "2.10.0")
+crossScalaVersions := Seq("2.9.2")
 
 publishTo <<= version { v: String =>
   val nexus = "https://oss.sonatype.org/"
