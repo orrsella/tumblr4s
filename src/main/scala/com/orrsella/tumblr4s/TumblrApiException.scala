@@ -46,7 +46,7 @@ object TumblrApiException {
       val message = (json \ "meta" \ "msg").extract[String]
       new TumblrApiException(status, message, contents, cause)
     } catch {
-      case e => println(e); new TumblrApiException(status, "Unknown error", contents, cause)
+      case e: Throwable => println(e); new TumblrApiException(status, "Unknown error", contents, cause)
     }
   }
 }
