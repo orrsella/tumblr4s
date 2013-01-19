@@ -12,7 +12,7 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "1.8" % "test")
 
 // publishing related
-crossScalaVersions := Seq("2.9.2")
+crossScalaVersions := Seq("2.9.0", "2.9.1", "2.9.2")
 
 publishTo <<= version { v: String =>
   val nexus = "https://oss.sonatype.org/"

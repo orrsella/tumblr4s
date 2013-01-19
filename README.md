@@ -2,9 +2,13 @@
 
 A simple and (hopefully) idiomatic Scala library for the [Tumblr API](http://www.tumblr.com/docs/en/api/v2). Provides all API functionality in native Scala code and objects (no json responses). See [this post](http://orrsella.com/post/37654002423/introducing-tumblr4s-a-scala-library-for-the-tumblr-api) for some more background.
 
-## Building
+## Latest Version
 
-Use [sbt](http://www.scala-sbt.org/) (Simple Build Tool) to build.
+The latest version of tumblr4s is 1.0. To add it to your project using [sbt](http://www.scala-sbt.org/), add the following to your build.sbt file:
+
+```scala
+libraryDependencies += "com.orrsella" %% "tumblr4s" % "1.0"
+```
 
 ## Dependencies
 
