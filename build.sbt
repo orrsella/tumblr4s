@@ -2,7 +2,7 @@ name := "tumblr4s"
 
 organization := "com.orrsella"
 
-version := "1.0-SNAPSHOT"
+version := "1.0"
 
 libraryDependencies ++= Seq(
   "net.databinder" %% "dispatch-http" % "0.8.9",
