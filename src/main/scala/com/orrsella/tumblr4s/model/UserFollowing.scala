@@ -19,7 +19,7 @@ package com.orrsella.tumblr4s.model
 /**
  * A blog's followees
  *
- * @param totalFollowees The number of blogs the user is following
- * @param followees      Each item is a followee
+ * @param totalBlogs The number of blogs the user is following
+ * @param blogs      Each item is a followee
  */
 class UserFollowing(val totalBlogs: Int, val blogs: Seq[Followee]) extends TumblrObject
