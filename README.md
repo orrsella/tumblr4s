@@ -4,15 +4,15 @@ A simple and (hopefully) idiomatic Scala library for the [Tumblr API](http://www
 
 ## Latest Version
 
-The latest version of tumblr4s is 1.0.2. To add it to your project using [sbt](http://www.scala-sbt.org/), add the following to your build.sbt file:
+The latest version of tumblr4s is 1.0.3. To add it to your project using [sbt](http://www.scala-sbt.org/), add the following to your build.sbt file:
 
 ```scala
-libraryDependencies += "com.orrsella" %% "tumblr4s" % "1.0.2"
+libraryDependencies += "com.orrsella" %% "tumblr4s" % "1.0.3"
 ```
 
 ## Dependencies
 
-The library is published for Scala 2.10 and 2.11.
+The library is published for Scala 2.10 and 2.11 (version 1.0.1 still supports Scala 2.9, in case you're interested).
 
 The following dependencies are used:
 
