@@ -4,21 +4,21 @@ A simple and (hopefully) idiomatic Scala library for the [Tumblr API](http://www
 
 ## Latest Version
 
-The latest version of tumblr4s is 1.0. To add it to your project using [sbt](http://www.scala-sbt.org/), add the following to your build.sbt file:
+The latest version of tumblr4s is 1.0.2. To add it to your project using [sbt](http://www.scala-sbt.org/), add the following to your build.sbt file:
 
 ```scala
-libraryDependencies += "com.orrsella" %% "tumblr4s" % "1.0"
+libraryDependencies += "com.orrsella" %% "tumblr4s" % "1.0.2"
 ```
 
 ## Dependencies
 
-The library works with Scala 2.9.x and 2.10.0.
+The library is published for Scala 2.10 and 2.11.
 
-The following libraries are used:
+The following dependencies are used:
 
-* [Dispatch 0.8.9 ("dispatch-classic")](http://dispatch-classic.databinder.net/Dispatch.html) for making HTTP requests (http, oauth and mime modules)
+* [Dispatch 0.8.10 ("dispatch-classic")](http://dispatch-classic.databinder.net/Dispatch.html) for making HTTP requests (http, oauth and mime modules)
 
-* [json4s 3.1.0](http://json4s.org/) for json parsing (essentially "lift-json but outside of the lift project")
+* [json4s 3.2.11](http://json4s.org/) for json parsing (essentially "lift-json but outside of the lift project")
 
 ## Usage
 
