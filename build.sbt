@@ -2,8 +2,6 @@ name := "tumblr4s"
 
 organization := "com.orrsella"
 
-version := "1.0.2-SNAPSHOT"
-
 scalaVersion := "2.11.4"
 
 libraryDependencies ++= Seq(
