@@ -16,6 +16,8 @@ releaseSettings
 
 ReleaseKeys.crossBuild := true
 
+ReleaseKeys.publishArtifactsAction := PgpKeys.publishSigned.value
+
 crossScalaVersions := Seq("2.10.4", "2.11.4")
 
 publishTo <<= version { v: String =>
