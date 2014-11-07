@@ -5,14 +5,14 @@ organization := "com.orrsella"
 version := "1.0.2-SNAPSHOT"
 
 libraryDependencies ++= Seq(
-  "net.databinder" %% "dispatch-http" % "0.8.9",
-  "net.databinder" %% "dispatch-oauth" % "0.8.9",
-  "net.databinder" %% "dispatch-mime" % "0.8.9",
-  "org.json4s" %% "json4s-native" % "3.2.2",
-  "org.scalatest" %% "scalatest" % "1.9.1" % "test")
+  "net.databinder" %% "dispatch-http" % "0.8.10",
+  "net.databinder" %% "dispatch-oauth" % "0.8.10",
+  "net.databinder" %% "dispatch-mime" % "0.8.10",
+  "org.json4s" %% "json4s-native" % "3.2.11",
+  "org.scalatest" %% "scalatest" % "2.1.7" % "test")
 
 // publishing related
-crossScalaVersions := Seq("2.9.0", "2.9.1", "2.9.2", "2.9.3", "2.10.0", "2.10.1")
+crossScalaVersions := Seq("2.10.0", "2.10.1", "2.10.2", "2.10.3", "2.10.4", "2.11.0", "2.11.1", "2.11.2", "2.11.4")
 
 publishTo <<= version { v: String =>
   val nexus = "https://oss.sonatype.org/"
