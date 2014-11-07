@@ -4,6 +4,8 @@ organization := "com.orrsella"
 
 version := "1.0.2-SNAPSHOT"
 
+scalaVersion := "2.11.4"
+
 libraryDependencies ++= Seq(
   "net.databinder" %% "dispatch-http" % "0.8.10",
   "net.databinder" %% "dispatch-oauth" % "0.8.10",

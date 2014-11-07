@@ -22,6 +22,7 @@ import dispatch.classic.mime.Mime._
 import dispatch.classic.oauth.OAuth._
 import dispatch.classic.oauth.{Consumer, Token}
 import java.io.File
+import scala.language.postfixOps
 
 /**
  * An implementation of HttpClient using databinder's Dispatch

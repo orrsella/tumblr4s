@@ -21,6 +21,7 @@ import com.orrsella.tumblr4s.model._
 import com.orrsella.tumblr4s.util._
 import org.json4s._
 import org.json4s.native.JsonMethods._
+import scala.language.implicitConversions
 
 /**
  * The Tumblr API: http://www.tumblr.com/docs/en/api/v2
