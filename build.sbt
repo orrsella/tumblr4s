@@ -14,6 +14,8 @@ libraryDependencies ++= Seq(
 // publishing related
 releaseSettings
 
+ReleaseKeys.crossBuild := true
+
 crossScalaVersions := Seq("2.10.4", "2.11.4")
 
 publishTo <<= version { v: String =>
